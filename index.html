@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>Train Scheduler</title>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-right" style="background-color: #CA85BA">
+
+    <a class="navbar-brand" href="#">Rachael Clark</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="https://rachaelclark12.github.io/">About <span
+                        class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="https://rachaelclark12.github.io/portfolio.html">Portfolio</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="https://rachaelclark12.github.io/contact.html">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<br>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-8" style="border: 1px solid lightgray">
+                <h2>Train Scheduler</h2>
+                <hr>
+
+                <div class="jumbotron bg-dark" style='color: white'>
+                    <h1 class="display-4 text-center">Anytime is Train Time</h1>
+                    <p class="lead">Choo Choo. Chee Chee.</p>
+
+                    </p>
+                </div>
+
+                <table class="table" id='trains' style='border: 1px solid lightgray'>
+                    <thead>
+                        <tr>
+                            <th colspan='5' class='bg-dark text-white' style="text-align: center">Current Train Schedule
+                            </th>
+                        <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+
+
+
+                <form style='border: 1px solid lightgray'>
+                    <div class="form-group" style='text-align: left'>
+                        <label for="train-name">Train Name</label>
+                        <input type="text" class="form-control" id="train-name">
+                    </div>
+                    <div class="form-group" style='text-align: left'>
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination">
+                    </div>
+
+                    <div class="form-group" style='text-align: left'>
+                        <label for="first-train-time">First Train Time (HH:mm - military time)</label>
+                        <input type="time" value='00:00' class="form-control" id="first-train-time">
+                    </div>
+
+                    <div class="form-group" style='text-align: left'>
+                        <label for="frequency">Frequency (min)</label>
+                        <input type="number" class="form-control" id="frequency">
+                    </div>
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+            <div class="col-lg-2"></div>
+
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small unique-color-dark fixed-bottom">
+
+        <div style="background-color: #CA85BA;">
+            <div id="foot">
+
+                <!-- Grid row-->
+                <div class="row py-4 d-flex align-items-center">
+
+                    <!-- Grid column -->
+                    <div class="col">
+                        <h6 class="mb-0">Rachael Clark | 2019</h6>
+                    </div>
+    </footer>
+
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>  
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+</html>
