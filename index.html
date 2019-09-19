@@ -78,8 +78,7 @@
                             <th scope="col">Minutes Away</th>
                         </tr>
                     </thead>
-                    <tbody>
-
+                    <tbody id='add-rows'>
                     </tbody>
                 </table>
 
@@ -88,29 +87,24 @@
 
                 <form style='border: 1px solid lightgray'>
                     <div class="form-group" style='text-align: left'>
-                        <label for="train-name">Train Name</label>
+                        <label for="text">Train Name</label>
                         <input type="text" class="form-control" id="train-name">
                     </div>
                     <div class="form-group" style='text-align: left'>
-                        <label for="destination">Destination</label>
+                        <label for="text">Destination</label>
                         <input type="text" class="form-control" id="destination">
                     </div>
 
                     <div class="form-group" style='text-align: left'>
-                        <label for="first-train-time">First Train Time (HH:mm - military time)</label>
-                        <input type="time" value='00:00' class="form-control" id="first-train-time">
+                        <label for="text">First Train Time (HH:mm - military time)</label>
+                        <input type="text" class="form-control" id="first-train-time">
                     </div>
 
                     <div class="form-group" style='text-align: left'>
-                        <label for="frequency">Frequency (min)</label>
+                        <label for="number">Frequency (min)</label>
                         <input type="number" class="form-control" id="frequency">
                     </div>
-
-
-
-
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
                 </form>
 
             </div>
@@ -142,10 +136,10 @@
                     </div>
     </footer>
 
-    
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -154,7 +148,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <!-- Moment.js Reference -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js'></script>
 </body>
 
 </html>
