@@ -11,7 +11,6 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 //Assign the reference to the database and path
 var database = firebase.database();
 var path = 'train/';
@@ -20,9 +19,7 @@ var path = 'train/';
 var trainName;
 var destination;
 var firstTrain;
-var freq;
-var next;
-var minsAway;
+var freq = 0;
 
 //At the initial load and subsequent value changes, get a snapshot of the stored data
 database.ref('train/').on('value', function (snapshot) {
@@ -74,24 +71,48 @@ database.ref('train/').on('child_added', function (childSnapshot) {
     var firstTrain = childSnapshot.val().firstTrainTime;
     var freq = childSnapshot.val().frequency;
 
-    //Calculate next arrival
-
-
-    //Calculate minutes away
-    //var minsAway = moment().diff(moment(firstTrain, 'm'), 'm');
-    //console.log(minsAway)
+    console.log(trainName);
+    console.log(destination);
+    console.log(firstTrain);
+    console.log(freq);
 
 
 
+    //Calculations
+    //Convert first train time to last year to be less than current time
+    var firstTrainLY = moment(firstTrain, "HH:mm").subtract(1, "years");
+    console.log(firstTrainLY);
+
+    //Calculate time between current time and first train time last year
+    var timeDifference = moment().diff(moment(firstTrainLY), "minutes");
+    console.log(timeDifference)
+
+    //Calculate time apart (remainder)
+    var tRemainder = timeDifference % freq;
+
+    //Calculate how many minutes away the train is
+    var minsAway = freq - tRemainder;
+
+    //Calculate next arrival time
+    var next = moment().add(minsAway, "minutes");
+    next = moment(next).format("HH:mm");
+
+    //Append data to the table in a new row
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(destination),
-        $("<td>").text(freq)
-        //$("<td>").text(next),
-        //$("<td>").text(minsAway)
-      );
+        $("<td>").text(freq),
+        $("<td>").text(next),
+        $("<td>").text(minsAway)
+    );
+    
+    // Append the new row to the table
+    $("#trains > tbody").append(newRow);
 
-        // Append the new row to the table
-  $("#trains > tbody").append(newRow);
-})
+    //If any errors are experienced, log them to the console
+    }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+});
+
+
 
