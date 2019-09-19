@@ -29,6 +29,7 @@ database.ref('train/').on('value', function (snapshot) {
     console.log(snapshot.val());
 });
 
+//On submit button click...
 $('.btn-submit').on('click', function (event) {
     //Prevent form from submitting
     event.preventDefault();
@@ -43,15 +44,54 @@ $('.btn-submit').on('click', function (event) {
     console.log(firstTrain);
     console.log(freq);
 
-    database.ref('train/').push({
-        trainName: trainName,
-        destination: destination,
-        firstTrain: firstTrain,
-        freq: freq
-    });
+    //Create local 'temporary' object for holding train information
+    var newTrain = {
+        name: trainName,
+        dest: destination,
+        firstTrainTime: firstTrain,
+        frequency: freq
+    };
+
+    //Push data to Firebase
+    database.ref('train/').push(newTrain);
+
+    console.log(newTrain.name);
+    console.log(newTrain.dest);
+    console.log(newTrain.firstTrainTime);
+    console.log(newTrain.frequency);
+
+    //Clear out form data
     $('form')[0].reset();
 });
 
+//Add trains to Firebase and create a new row on the HTML and store train data in row
+database.ref('train/').on('child_added', function (childSnapshot) {
+    console.log(childSnapshot.val());
+
+    //Store everything into a variable
+    var trainName = childSnapshot.val().name;
+    var destination = childSnapshot.val().dest;
+    var firstTrain = childSnapshot.val().firstTrainTime;
+    var freq = childSnapshot.val().frequency;
+
+    //Calculate next arrival
 
 
+    //Calculate minutes away
+    //var minsAway = moment().diff(moment(firstTrain, 'm'), 'm');
+    //console.log(minsAway)
+
+
+
+    var newRow = $("<tr>").append(
+        $("<td>").text(trainName),
+        $("<td>").text(destination),
+        $("<td>").text(freq)
+        //$("<td>").text(next),
+        //$("<td>").text(minsAway)
+      );
+
+        // Append the new row to the table
+  $("#trains > tbody").append(newRow);
+})
 
