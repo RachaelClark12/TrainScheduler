@@ -3,9 +3,9 @@ View and add trains to the train schedule. The application provides up-to-date i
 
 # Technology
 Javascript
-jQuery
-Firebase
-Moment.js
+<br>jQuery
+<br>Firebase
+<br>Moment.js
 
 # Functionality
  To add a train, input the details in the form and select "Submit". This application will calculate when the next train is arriving based on train start time and frequency of the train.
