@@ -71,11 +71,11 @@ database.ref('train/').on('child_added', function (childSnapshot) {
     var firstTrain = childSnapshot.val().firstTrainTime;
     var freq = childSnapshot.val().frequency;
 
+    //Console log values
     console.log(trainName);
     console.log(destination);
     console.log(firstTrain);
     console.log(freq);
-
 
 
     //Calculations
@@ -105,7 +105,7 @@ database.ref('train/').on('child_added', function (childSnapshot) {
         $("<td>").text(next),
         $("<td>").text(minsAway)
     );
-    
+
     // Append the new row to the table
     $("#trains > tbody").append(newRow);
 
